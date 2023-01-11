@@ -1,0 +1,22 @@
+from http://fox-toolkit.org/ :
+
+VisualC++/VisualStudio #defines
+
+UNICODE;WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;BUILD_WINDOWS;FOXDLL_EXPORTS;HAVE_GL_H;HAVE_GLU_H;%(PreprocessorDefinitions)
+
+VisualC++/VisualStudio .libs
+
+$(CoreLibraryDependencies);%(AdditionalDependencies);"C:\code\fox-toolkit-devlib\windows\x64\Debug\foxlib.lib"; gdi32.lib; user32.lib; kernel32.lib; comctl32.lib;  wsock32.lib; imm32.lib; msimg32.lib; advapi32.lib; shell32.lib;  opengl32.lib; glu32.lib;
+
+Makefile/Automake: (from: http://fox-toolkit.org/ )
+
+"C:\code\fox-toolkit-devlib\Makefile.am"
+"C:\code\fox-toolkit-devlib\lib\Makefile.am"
+"C:\code\fox-toolkit-devlib\tests\Makefile.am"
+
+example: (defines and libs/libraries)
+
+if COND_OSWINDOWS
+AM_CXXFLAGS += -DFOXDLL -DFOXDLL_EXPORTS -DWIN32 -DNDEBUG -D_WINDOWS -DUNICODE -D_USRDLL -D_CRT_SECURE_NO_WARNINGS
+libFOX_1_7_la_LDFLAGS += -lcomctl32 -lwsock32 -limm32 -lmsimg32
+endif
